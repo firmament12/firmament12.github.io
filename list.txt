@@ -1,0 +1,46 @@
+$(function(){
+
+document.getElementById('sai')
+.insertAdjacentHTML('afterbegin',
+ '&lt;img src="img/dice/dice1.png" alt="dice1"&gt;
+  &lt;img src="img/dice/dice2.png" alt="dice2"&gt;
+  &lt;img src="img/dice/dice3.png" alt="dice3"&gt;
+  &lt;img src="img/dice/dice4.png" alt="dice4"&gt;
+  &lt;img src="img/dice/dice5.png" alt="dice5"&gt;
+  &lt;img src="img/dice/dice6.png" alt="dice6"&gt;');
+(実コードでは , の後の '' の中は隣接しています)
+
+var dice =
+ ['&lt;img src="img/dice/dice1.png" alt="dice1"&gt;',
+  '&lt;img src="img/dice/dice2.png" alt="dice2"&gt;',
+  '&lt;img src="img/dice/dice3.png" alt="dice3"&gt;',
+  '&lt;img src="img/dice/dice4.png" alt="dice4"&gt;',
+  '&lt;img src="img/dice/dice5.png" alt="dice5"&gt;',
+  '&lt;img src="img/dice/dice6.png" alt="dice6"&gt;'];
+
+$('#dice').on('touchend click',function(event){
+   event.preventDefault();
+var rnd = Math.floor(Math.random()*dice.length);
+   var shuffle = dice[rnd];
+  if (dice.length === 6) {
+    switch (rnd) {
+        case 0:
+          rnd++;
+          shuffle = dice[rnd];
+          $('#dice').html(shuffle);
+        break;
+        default:
+          $('#dice').html(shuffle);
+        break;
+    }
+        dice.splice(rnd,1);
+        localStorage['add'] = shuffle;
+  } else {
+        $('#dice').html(shuffle);
+        dice.splice(rnd,1);
+        dice.splice(4,0,localStorage['add']);
+        localStorage['add'] = shuffle;
+    }
+});
+  
+});
