@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>CAFE SPACE</title>
+<meta name="viewport" content="width=device-width">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400&display=swap&subset=japanese" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Mukta:800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+     <h1>CAFE SPACE</h1>
+     <div class="btn-wrapper">
+     <p id="nav-btn"><span class="bar"></span></p>
+     </div><!-- /.btn-wrapper -->
+     <nav id="gnav">
+       <ul>
+        <li><a href="#" class="current">12 DECEMBER 2022</a></li>
+        <li><a href="#">5 DECEMBER 2022</a></li>
+        <li><a href="#">28 NOVEMBER 2022</a></li>
+        <li><a href="#">21 NOVEMBER 2022</a></li>
+       </ul>
+     </nav><!-- /#gnav -->
+    </div><!-- /.container -->
+  </header><!-- /.page-header -->
+  
+  <main class="main-content">
+   <div class="container">
+    <h2><span class="red-c">TRAVEL DIALY</span><br>旅先で出会ったカフェテリア</h2>
+    <div class="article">
+      <div class="date">
+        <p>12</p><p>DECEMBER 2022</p><p>/ San Francisco, CA</p>
+      </div><!-- /.date -->
+      <div class="break-time">
+        <p class="one">おいしい飲み物と食べ物はもちろん、一息つける落ち着いた空間がいつでも暖かく迎え入れてくれます。
+        今日は何を食べようかな？ メニューを見て悩む時間もまた楽しい一時です。のんびり悩んでいるとまわりの人の迷惑になるかも… と思ってしまうときは、
+        混雑する時間帯を避けていくことにしています。</p>
+        <p class="two">というのも、店員さんが忙しくしていないときであれば、こちらがちょっと不慣れな様子でも優しく対応してもらえることが多いからです。
+        メニューについてアレコレきいてみるのも、思わぬ発見があって楽しめます。</p>
+      </div><!-- /.break-time -->
+    </div><!-- /.article -->
+    </div><!-- /.conatainer -->
+  </main><!-- /.main-content -->
+  
+  <footer class="page-footer">
+    <p class="copy"><small>Copyright &copy; CAFE SPACE</small></p>
+  </footer><!-- /.page-footer -->
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(function(){
+  $('#nav-btn').on('click touchend',function(){
+    $('#gnav').toggleClass('click');
+    if ($('#gnav').hasClass('click')) {
+      $('.btn-wrapper').css('position','fixed');
+      $('h1').css('padding','0');
+      $('#gnav').animate({'left':'0','top':'0'},200);
+    } else {
+      $('.btn-wrapper').css('position','static');
+      $('h1').css('padding-right','44px');
+      $('#gnav').animate({'left':'-50%','top':'0'},200);
+    }
+    $(this).toggleClass('hamburger');
+  });
+  $(document).on('click touchend',function(e){
+    if (!$(e.target).closest('#gnav,.btn-wrapper').length) {
+      $('.btn-wrapper').css('position','static');
+      $('h1').css('padding-right','44px');
+      $('#gnav').animate({'left':'-50%','top':'0'},200);
+      $('#gnav').removeClass('click');
+      $('#nav-btn').removeClass('hamburger');
+    }
+  });
+});
+</script>
+</body>
+</html>
