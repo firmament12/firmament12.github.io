@@ -170,7 +170,7 @@ h3{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 26%;
+  max-width: 20%;
 }
 .lottery{
   text-align: center;
