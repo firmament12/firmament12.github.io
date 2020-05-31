@@ -91,6 +91,10 @@ h1>img{
   width: calc(100% / 4);
   box-sizing: border-box;
 }
+#tab2{
+  display: flex;
+  justify-content: center;
+}
 .design a{
   display: block;
   background: #1b2b47;
@@ -143,12 +147,10 @@ h3{
   font-size: 14px;
   line-height: 1.6;
 }
-.sample{
-  opacity: 0.7;
-}
-#banner2 .fix{
-  font-size: 24px;
-  text-align: center;
+#aiBasic img{
+  display: block;
+  max-height: 400px;
+  margin: 0 auto;
 }
 .code{
   text-align: center;
@@ -215,11 +217,8 @@ pre{
   color: #fff;
 }
 
-
-
 /*-------- PClayout --------*/
 @media (min-width:768px){
-
 
 .main-visual{
   height: calc(100vh - 60px);
