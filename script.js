@@ -1,15 +1,4 @@
 $(function(){
-// アニメ
-//  $(window).scrollTop(0);
-//    $(".mainSite").css("display", "none");
-//    $(".mainSite").css({opacity:'0'});
-//    setTimeout(function(){
-//      $(".mainSite").css("display", "block");
-//      $(".mainSite").stop().animate({opacity:'1'},400);
-//    },3000);
-//    setTimeout(function(){
-//      $(".anime").slideUp(1000);
-//    },2000);
   
 // スムーススクロール
   $('a[href^="#"]').not('.design>li>a').on('touchend click',function(smooth) {
@@ -36,6 +25,14 @@ $(function(){
     $('#tab2>li>a').css('border-right','1px solid #fff');
     var target = $(this).attr('href');
     $(target).addClass('active2').siblings('.panel').removeClass('active2');
+    return false;
+  });
+  $('.other>a,.basic>a').on('touchend click',function(){
+    $('#tab2').css('justify-content','space-between');
+    return false;
+  });
+  $('.design>li>a').not('.other>a,.basic>a').on('touchend click',function(){
+    $('#tab2').css('justify-content','center');
     return false;
   });
   
@@ -76,6 +73,17 @@ $(function(){
   
 // コードを表示
   $('#list').load('list.txt');
-  
+
+// アニメ
+//  $(window).scrollTop(0);
+//    $(".mainSite").css("display", "none");
+//    $(".mainSite").css({opacity:'0'});
+//    setTimeout(function(){
+//      $(".mainSite").css("display", "block");
+//      $(".mainSite").stop().animate({opacity:'1'},400);
+//    },3000);
+//    setTimeout(function(){
+//      $(".anime").slideUp(1000);
+//    },2000);
   
 });
