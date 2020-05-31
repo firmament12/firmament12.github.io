@@ -170,7 +170,9 @@ h3{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 20%;
+}
+#sai img{
+  max-width: 44px;
 }
 .lottery{
   text-align: center;
@@ -180,7 +182,7 @@ h3{
   display: inline-block;
 }
 #dice img{
-  max-height: 173px;
+  max-width: 88px;
   margin: 20px 0 30px;
   cursor: pointer;
 }
@@ -277,6 +279,9 @@ h3{
 }
 #sai img{
   max-width: 13%;
+}
+#dice img{
+  max-width: 100%;
 }
 #list{
   font-size: 19px;
