@@ -211,7 +211,7 @@ pre{
 }
 .up>a{
   display: block;
-  padding: calc((50px - 32px) / 2) 0;
+  padding: calc((48px - 32px) / 2) 0;
   background: #909;
   border-radius: 50%;
   text-align: center;
