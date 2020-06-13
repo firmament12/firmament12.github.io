@@ -80,6 +80,7 @@ h1>img{
 .down>a:active{
   background: #fff;
   color: #888;
+  outline: hidden;
 }
 .fa-angle-down{
   font-size: 36px;
