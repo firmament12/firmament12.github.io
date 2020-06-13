@@ -1,5 +1,6 @@
 $(function(){
   
+  var clickEventType = (( window.ontouchstart!==null ) ? 'click':'touchend');
 // タブパネル
   $(function(){
       var $isScrolling = 0 ;
@@ -12,38 +13,38 @@ $(function(){
         }, 100 );
      });
   });
-  var clickEventType = (( window.ontouchstart!==null ) ? 'click':'touchend');
-//  $(document).on(clickEventType,'セレクタ名',function(){
-//      
-//      
-//  });
-  if ($isScrolling === 0) {
-      
   $('#tab1>li>a').on(clickEventType,function(){
-    $('*').removeClass('active2');
-    $(this).parent('li').addClass('active1').siblings('li').removeClass('active1');
-    $('#tab2>li>a').css('border-right','1px solid #ccc');
-    var target = $(this).attr('href');
-    $(target).addClass('active1').siblings('.panel').removeClass('active1');
-    return false;
+    if ($isScrolling === 0) {
+      $('*').removeClass('active2');
+      $(this).parent('li').addClass('active1').siblings('li').removeClass('active1');
+      $('#tab2>li>a').css('border-right','1px solid #ccc');
+      var target = $(this).attr('href');
+      $(target).addClass('active1').siblings('.panel').removeClass('active1');
+      return false;
+    }
   });
   $('#tab2>li>a').on(clickEventType,function(){
-    $('*').removeClass('active1');
-    $(this).parent('li').addClass('active2').siblings('li').removeClass('active2');
-    $('#tab2>li>a').css('border-right','1px solid #fff');
-    var target = $(this).attr('href');
-    $(target).addClass('active2').siblings('.panel').removeClass('active2');
-    return false;
+    if ($isScrolling === 0) {
+      $('*').removeClass('active1');
+      $(this).parent('li').addClass('active2').siblings('li').removeClass('active2');
+      $('#tab2>li>a').css('border-right','1px solid #fff');
+      var target = $(this).attr('href');
+      $(target).addClass('active2').siblings('.panel').removeClass('active2');
+      return false;
+    }
   });
   $('.other>a,.basic>a').on(clickEventType,function(){
-    $('#tab2').css('justify-content','space-between');
-    return false;
+    if ($isScrolling === 0) {
+      $('#tab2').css('justify-content','space-between');
+      return false;
+    }
   });
   $('.design>li>a').not('.other>a,.basic>a').on(clickEventType,function(){
-    $('#tab2').css('justify-content','center');
-    return false;
+    if ($isScrolling === 0) {
+      $('#tab2').css('justify-content','center');
+      return false;
+    }
   });
-  }
   
   // スムーススクロール
   $('a[href^="#"]').not('.design>li>a').on(clickEventType,function() {
