@@ -1,8 +1,8 @@
 $(function(){
   
 // スムーススクロール
-  $('a[href^="#"]').not('.design>li>a').on('touchend click',function(smooth) {
-    smooth.preventDefault();
+  $('a[href^="#"]').not('.design>li>a').on('click',function(smooth) {
+    //smooth.preventDefault();
     var href= $(this).attr('href');
     var target = $(href);
     var position = target.offset().top;
