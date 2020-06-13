@@ -9,7 +9,7 @@ $(function(){
       clearTimeout( $timeoutId );
     $timeoutId = setTimeout( function () {
       $isScrolling = 0 ;
-    }, 100 );
+    }, 200 );
   });
   $('#tab1>li>a').on(clickEventType,function(){
     if ($isScrolling === 0) {
@@ -45,7 +45,8 @@ $(function(){
   });
   
 // スムーススクロール
-  $('a[href^="#"]').not('.design>li>a').on(clickEventType,function() {
+  $('a[href^="#"]').not('.design>li>a').on(clickEventType,function(smooth) {
+    smooth.preventDefault();
     var href= $(this).attr('href');
     var target = $(href);
     var position = target.offset().top;
@@ -63,7 +64,8 @@ $(function(){
     '<img src="img/dice/dice4.png" alt="dice4">',
     '<img src="img/dice/dice5.png" alt="dice5">',
     '<img src="img/dice/dice6.png" alt="dice6">'];
-  $('#dice').on(clickEventType,function(){
+  $('#dice').on(clickEventType,function(event){
+    event.preventDefault();
     var rnd = Math.floor(Math.random()*dice.length);
     var shuffle = dice[rnd];
     if (dice.length === 6) {
