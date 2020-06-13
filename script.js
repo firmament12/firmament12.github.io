@@ -10,7 +10,8 @@ $(function(){
   });
   
 // タブパネル
-  $('#tab1>li>a').on('click',function(){
+  $('#tab1>li>a').on('touchend click',function(open1){
+    open1.preventDefault();
     $('*').removeClass('active2');
     $(this).parent('li').addClass('active1').siblings('li').removeClass('active1');
     $('#tab2>li>a').css('border-right','1px solid #ccc');
@@ -18,7 +19,8 @@ $(function(){
     $(target).addClass('active1').siblings('.panel').removeClass('active1');
     return false;
   });
-  $('#tab2>li>a').on('click',function(){
+  $('#tab2>li>a').on('touchend click',function(open2){
+    open2.preventDefault();
     $('*').removeClass('active1');
     $(this).parent('li').addClass('active2').siblings('li').removeClass('active2');
     $('#tab2>li>a').css('border-right','1px solid #fff');
@@ -26,7 +28,7 @@ $(function(){
     $(target).addClass('active2').siblings('.panel').removeClass('active2');
     return false;
   });
-  $('.other>a,.basic>a').on('click',function(){
+  $('.other>a,.basic>a').on('touchend click',function(){
     $('#tab2').css('justify-content','space-between');
     return false;
   });
