@@ -52,7 +52,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
 $(function(){
-  $('#nav-btn').on('click touchend',function(){
+  $('#nav-btn').on('click',function(){
     $('#gnav').toggleClass('click');
     if ($('#gnav').hasClass('click')) {
       $('.btn-wrapper').css('position','fixed');
@@ -65,7 +65,7 @@ $(function(){
     }
     $(this).toggleClass('hamburger');
   });
-  $(document).on('click touchend',function(e){
+  $(document).on('click',function(e){
     if (!$(e.target).closest('#gnav,.btn-wrapper').length) {
       $('.btn-wrapper').css('position','static');
       $('h1').css('padding-right','44px');
