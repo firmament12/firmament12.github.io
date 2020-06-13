@@ -245,10 +245,6 @@ h1{
   width: 48px;
   height: 46px;
 }
-.down>a:hover{
-  background: #fff;
-  color: #888;
-}
 .intro{
   font-size: 28px;
   padding-top: 12px;
@@ -303,9 +299,6 @@ h3{
 .up{
   right: 32px;
   bottom: 28px;
-}
-.up>a:hover{
-  background: #00b06b;
 }
 
 }
