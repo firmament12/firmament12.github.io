@@ -9,7 +9,7 @@ $(function(){
       clearTimeout( $timeoutId );
     $timeoutId = setTimeout( function () {
       $isScrolling = 0 ;
-    }, 200 );
+    }, 300 );
   });
   $('#tab1>li>a').on(clickEventType,function(){
     if ($isScrolling === 0) {
@@ -45,8 +45,7 @@ $(function(){
   });
   
 // スムーススクロール
-  $('a[href^="#"]').not('.design>li>a').on('click',function(smooth) {
-    smooth.preventDefault();
+  $('a[href^="#"]').not('.design>li>a').on('click',function() {
     var href= $(this).attr('href');
     var target = $(href);
     var position = target.offset().top;
