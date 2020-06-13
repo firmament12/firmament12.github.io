@@ -1,17 +1,25 @@
 $(function(){
   
-// スムーススクロール
-  $('a[href^="#"]').not('.design>li>a').on('click',function() {
-    var href= $(this).attr('href');
-    var target = $(href);
-    var position = target.offset().top;
-    $('body,html').animate({scrollTop:position}, 300, 'swing');
-    return false;
-  });
-  
 // タブパネル
-  $('#tab1>li>a').on('touchend click',function(open1){
-    open1.preventDefault();
+  $(function(){
+      var $isScrolling = 0 ;
+      var $timeoutId ;
+      $(document).on( "scroll", function () {
+          $isScrolling = 1 ;
+          clearTimeout( $timeoutId );
+        $timeoutId = setTimeout( function () {
+          $isScrolling = 0 ;
+        }, 100 );
+     });
+  });
+  var clickEventType = (( window.ontouchstart!==null ) ? 'click':'touchend');
+//  $(document).on(clickEventType,'セレクタ名',function(){
+//      
+//      
+//  });
+  if ($isScrolling === 0) {
+      
+  $('#tab1>li>a').on(clickEventType,function(){
     $('*').removeClass('active2');
     $(this).parent('li').addClass('active1').siblings('li').removeClass('active1');
     $('#tab2>li>a').css('border-right','1px solid #ccc');
@@ -19,8 +27,7 @@ $(function(){
     $(target).addClass('active1').siblings('.panel').removeClass('active1');
     return false;
   });
-  $('#tab2>li>a').on('touchend click',function(open2){
-    open2.preventDefault();
+  $('#tab2>li>a').on(clickEventType,function(){
     $('*').removeClass('active1');
     $(this).parent('li').addClass('active2').siblings('li').removeClass('active2');
     $('#tab2>li>a').css('border-right','1px solid #fff');
@@ -28,12 +35,22 @@ $(function(){
     $(target).addClass('active2').siblings('.panel').removeClass('active2');
     return false;
   });
-  $('.other>a,.basic>a').on('touchend click',function(){
+  $('.other>a,.basic>a').on(clickEventType,function(){
     $('#tab2').css('justify-content','space-between');
     return false;
   });
-  $('.design>li>a').not('.other>a,.basic>a').on('touchend click',function(){
+  $('.design>li>a').not('.other>a,.basic>a').on(clickEventType,function(){
     $('#tab2').css('justify-content','center');
+    return false;
+  });
+  }
+  
+  // スムーススクロール
+  $('a[href^="#"]').not('.design>li>a').on(clickEventType,function() {
+    var href= $(this).attr('href');
+    var target = $(href);
+    var position = target.offset().top;
+    $('body,html').animate({scrollTop:position}, 300, 'swing');
     return false;
   });
   
@@ -47,10 +64,9 @@ $(function(){
     '<img src="img/dice/dice4.png" alt="dice4">',
     '<img src="img/dice/dice5.png" alt="dice5">',
     '<img src="img/dice/dice6.png" alt="dice6">'];
-  $('#dice').on('touchend click',function(event){
-     event.preventDefault();
-  var rnd = Math.floor(Math.random()*dice.length);
-     var shuffle = dice[rnd];
+  $('#dice').on(clickEventType,function(){
+    var rnd = Math.floor(Math.random()*dice.length);
+    var shuffle = dice[rnd];
     if (dice.length === 6) {
       switch (rnd) {
           case 0:
@@ -74,7 +90,7 @@ $(function(){
   
 // コードを表示
   $('#list').load('list.txt');
-
+  
 // アニメ
 //  $(window).scrollTop(0);
 //    $(".mainSite").css("display", "none");
