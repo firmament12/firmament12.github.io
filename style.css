@@ -62,13 +62,14 @@ h1>img{
   left: calc(50vw - 24px);
   width: 48px;
   height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   overflow: hidden;
   outline: none;
 }
 .down>a{
   display: block;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  
   color: rgba(255, 255, 255, 0.8);
   padding: calc((48px - 36px) / 2) 0;
   text-align: center;
