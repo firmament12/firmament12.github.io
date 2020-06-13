@@ -70,7 +70,7 @@ h1>img{
   padding: calc((50px - 38px) / 2) 0;
   text-align: center;
 }
-.down>a:hover,.down>a:active{
+.down>a:active{
   background: #fff;
   color: #888;
 }
@@ -220,7 +220,7 @@ pre{
   border-radius: 50%;
   text-align: center;
 }
-.up>a:hover,.up>a:active{
+.up>a:active{
   background: #00b06b;
 }
 .fa-angle-double-up{
@@ -244,6 +244,10 @@ h1{
   left: calc(50vw - 24px);
   width: 48px;
   height: 46px;
+}
+.down>a:hover{
+  background: #fff;
+  color: #888;
 }
 .intro{
   font-size: 28px;
@@ -299,6 +303,9 @@ h3{
 .up{
   right: 32px;
   bottom: 28px;
+}
+.up>a:hover{
+  background: #00b06b;
 }
 
 }
