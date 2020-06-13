@@ -57,7 +57,7 @@ h1>img{
 }
 .down{
   position: absolute;
-  top: 30.8vh;
+  top: 29vh;
   left: calc(50vw - 24px);
   width: 48px;
   height: 48px;
@@ -157,6 +157,9 @@ h3{
   max-height: 400px;
   margin: 0 auto;
 }
+.code{
+  text-align: center;
+}
 .code a{
   padding: 5px 0;
   text-align: center;
@@ -212,7 +215,7 @@ pre{
   height: 48px;
   position: absolute;
   right: 16px;
-  bottom: 26px;
+  bottom: 18px;
   border-radius: 50%;
   overflow: hidden;
 }
