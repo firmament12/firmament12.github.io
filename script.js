@@ -9,7 +9,7 @@ $(function(){
       clearTimeout( $timeoutId );
     $timeoutId = setTimeout( function () {
       $isScrolling = 0 ;
-    }, 300 );
+    }, 1200 );
   });
   $('#tab1>li>a').on(clickEventType,function(){
     if ($isScrolling === 0) {
