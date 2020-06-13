@@ -212,12 +212,13 @@ pre{
   position: absolute;
   right: 16px;
   bottom: 16px;
+  border-radius: 50%;
 }
 .up>a{
   display: block;
   padding: calc((48px - 32px) / 2) 0;
   background: #909;
-  border-radius: 50%;
+  
   text-align: center;
 }
 .up>a:active{
