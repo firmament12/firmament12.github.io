@@ -53,8 +53,6 @@ $(function(){
     }
   });
   
-
-  
 // サイコロ
   document.getElementById('sai').insertAdjacentHTML('afterbegin',
    '<img src="img/dice/dice1.png" alt="dice1"><img src="img/dice/dice2.png" alt="dice2"><img src="img/dice/dice3.png" alt="dice3"><img src="img/dice/dice4.png" alt="dice4"><img src="img/dice/dice5.png" alt="dice5"><img src="img/dice/dice6.png" alt="dice6">');
