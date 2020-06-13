@@ -232,6 +232,7 @@ pre{
 }
 h1{
   top: calc(50vh - 30px);
+  font-size: 50px;
 }
 .down{
   top: 70vh;
