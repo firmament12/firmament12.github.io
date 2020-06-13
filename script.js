@@ -65,7 +65,8 @@ $(function(){
     '<img src="img/dice/dice4.png" alt="dice4">',
     '<img src="img/dice/dice5.png" alt="dice5">',
     '<img src="img/dice/dice6.png" alt="dice6">'];
-  $('#dice').on(clickEventType,function(){
+  $('#dice').on(clickEventType,function(event){
+    event.preventDefault();
     if ($isScrolling === 0) {
       var rnd = Math.floor(Math.random()*dice.length);
       var shuffle = dice[rnd];
