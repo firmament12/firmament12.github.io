@@ -47,6 +47,10 @@ h1{
   transform: translate(-50%,-50%);
   color: rgba(255, 255, 255, 0.8);
   white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+h1>span{
+  letter-spacing: -2px;
 }
 h1>img{
   display: none;
@@ -232,7 +236,8 @@ pre{
 }
 h1{
   top: calc(50vh - 30px);
-  font-size: 50px;
+  font-size: 48px;
+  letter-spacing: 0.08em;
 }
 .down{
   top: 70vh;
