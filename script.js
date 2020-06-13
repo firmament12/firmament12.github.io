@@ -2,16 +2,14 @@ $(function(){
   
   var clickEventType = (( window.ontouchstart!==null ) ? 'click':'touchend');
 // タブパネル
-  $(function(){
-      var $isScrolling = 0 ;
-      var $timeoutId ;
-      $(document).on( "scroll", function () {
-          $isScrolling = 1 ;
-          clearTimeout( $timeoutId );
-        $timeoutId = setTimeout( function () {
-          $isScrolling = 0 ;
-        }, 100 );
-     });
+  var $isScrolling = 0 ;
+  var $timeoutId ;
+  $(document).on( "scroll", function () {
+      $isScrolling = 1 ;
+      clearTimeout( $timeoutId );
+    $timeoutId = setTimeout( function () {
+      $isScrolling = 0 ;
+    }, 100 );
   });
   $('#tab1>li>a').on(clickEventType,function(){
     if ($isScrolling === 0) {
