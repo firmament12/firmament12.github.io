@@ -1,7 +1,16 @@
 $(function(){
   
-  var clickEventType = (( window.ontouchstart!==null ) ? 'click':'touchend');
+// スムーススクロール
+  $('a[href^="#"]').not('.design>li>a').on('click',function() {
+    var href= $(this).attr('href');
+    var target = $(href);
+    var position = target.offset().top;
+    $('body,html').animate({scrollTop:position}, 300, 'swing');
+    return false;
+  });
+  
 // タブパネル
+  var clickEventType = (( window.ontouchstart!==null ) ? 'click':'touchend');
   var $isScrolling = 0 ;
   var $timeoutId ;
   $(document).on( "scroll", function () {
@@ -9,7 +18,7 @@ $(function(){
       clearTimeout( $timeoutId );
     $timeoutId = setTimeout( function () {
       $isScrolling = 0 ;
-    }, 1200 );
+    }, 300 );
   });
   $('#tab1>li>a').on(clickEventType,function(){
     if ($isScrolling === 0) {
@@ -44,14 +53,7 @@ $(function(){
     }
   });
   
-// スムーススクロール
-  $('a[href^="#"]').not('.design>li>a').on('click',function() {
-    var href= $(this).attr('href');
-    var target = $(href);
-    var position = target.offset().top;
-    $('body,html').animate({scrollTop:position}, 300, 'swing');
-    return false;
-  });
+
   
 // サイコロ
   document.getElementById('sai').insertAdjacentHTML('afterbegin',
@@ -63,29 +65,30 @@ $(function(){
     '<img src="img/dice/dice4.png" alt="dice4">',
     '<img src="img/dice/dice5.png" alt="dice5">',
     '<img src="img/dice/dice6.png" alt="dice6">'];
-  $('#dice').on(clickEventType,function(event){
-    event.preventDefault();
-    var rnd = Math.floor(Math.random()*dice.length);
-    var shuffle = dice[rnd];
-    if (dice.length === 6) {
-      switch (rnd) {
-          case 0:
-            rnd++;
-            shuffle = dice[rnd];
+  $('#dice').on(clickEventType,function(){
+    if ($isScrolling === 0) {
+      var rnd = Math.floor(Math.random()*dice.length);
+      var shuffle = dice[rnd];
+      if (dice.length === 6) {
+        switch (rnd) {
+            case 0:
+              rnd++;
+              shuffle = dice[rnd];
+              $('#dice').html(shuffle);
+            break;
+            default:
+              $('#dice').html(shuffle);
+            break;
+        }
+            dice.splice(rnd,1);
+            localStorage['add'] = shuffle;
+      } else {
             $('#dice').html(shuffle);
-          break;
-          default:
-            $('#dice').html(shuffle);
-          break;
-      }
-          dice.splice(rnd,1);
-          localStorage['add'] = shuffle;
-    } else {
-          $('#dice').html(shuffle);
-          dice.splice(rnd,1);
-          dice.splice(4,0,localStorage['add']);
-          localStorage['add'] = shuffle;
-      }
+            dice.splice(rnd,1);
+            dice.splice(4,0,localStorage['add']);
+            localStorage['add'] = shuffle;
+        }
+    }
   });
   
 // コードを表示
