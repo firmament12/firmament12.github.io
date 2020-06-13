@@ -46,7 +46,7 @@ $(function(){
     }
   });
   
-  // スムーススクロール
+// スムーススクロール
   $('a[href^="#"]').not('.design>li>a').on(clickEventType,function() {
     var href= $(this).attr('href');
     var target = $(href);
