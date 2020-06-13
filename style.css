@@ -221,7 +221,7 @@ pre{
   display: block;
   padding: calc((48px - 32px) / 2) 0;
   background: #909;
-  border-radius: 50%;
+  
   text-align: center;
 }
 .up>a:active{
